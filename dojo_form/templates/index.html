@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <title>Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="bg">
+        <h1 id="header">Fill out the form!</h1>
+        <form class="form_items" action="/results" method='POST'>
+            {% csrf_token %}
+            Name: <input class="form-control" type="text" name='name' required>
+            <br>
+            Languages: <select class="form-control" name='language'>
+                <option value="python">Python</option>
+                <option value="c#">C#</option>
+                <option value="java">Java</option>
+                <option value="javascript">JavaScript</option>
+                <option value="c">C</option>
+            </select>
+            <br>
+            Locations: <select class="form-control" name='location'>
+                <option value="burbank">Burbank</option>
+                <option value="chicago">Chicago</option>
+                <option value="dallas">Dallas</option>
+                <option value="seattle">Seattle</option>
+                <option value="dc">DC</option>
+            </select>
+            <br>
+            <textarea class="form-control" rows="4" cols="50" name="comment" placeholder="comment here..."></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+
+    </div>
+</body>
+
+</html>
